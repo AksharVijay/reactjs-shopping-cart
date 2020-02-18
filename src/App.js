@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Products from './components/Products';
 import  Cart from './components/Cart';
+import Addproduct from './components/Addproduct';
 //import { render } from '@testing-library/react';
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
     this.state = {products:[], filteredProducts:[], cartItems:[],};
     this.handleAddToCart = this.handleAddToCart.bind(this);
     this.handleRemoveFromCart = this.handleRemoveFromCart.bind(this);
+    this.addNewItem = this.addNewItem.bind(this);
   }
   componentWillMount(){
     fetch("http://localhost:8000/products").then(res => res.json())
@@ -50,6 +52,12 @@ class App extends Component {
       return{cartItems};
     });
   };
+  
+  addNewItem(product){
+    this.setState({
+      products: this.state.producsList.push(product)
+    });
+  }
   render(){
   return (
     <div className="container">
@@ -64,6 +72,11 @@ class App extends Component {
 
         </div>
 
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <Addproduct handleProduct={this.addNewItem}/>
+        </div>
       </div>
 
     </div>

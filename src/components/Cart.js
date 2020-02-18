@@ -22,6 +22,8 @@ export default class Cart extends Component{
                                     <button style={{ float : 'right'}} className="btn btn-danger" onClick={(e) => this.props.handleRemoveFromCart(e, item)}>Remove</button>
                                 </li>)}
                         </ul>
+                        <p><b>Total</b>: {util.formatCurrency(cartItems.reduce((a, c) => (a + c.price * c.count), 0))}</p>
+                        <button className="btn btn-primary" style={{width: '100%'}}>Place Order</button>
                     </div>
                 }
             </div>

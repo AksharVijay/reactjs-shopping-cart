@@ -36,6 +36,10 @@ li {
   width: 100%;
 }
 
+.form-control{
+  margin-bottom: 20px;
+}
+
 
 .App-link {
   color: #61dafb;
